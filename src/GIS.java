@@ -27,7 +27,7 @@ import java.io.IOException;
  * Starts the script process.
  * @author Mansour Najah
  */
-public class nameIndexer {
+public class GIS {
 
 	/**
 	 * Main constructor
@@ -37,17 +37,21 @@ public class nameIndexer {
 	 */
 	public static void main(String[] args) throws IOException {
 		// Checking for arguments.
-		if (args.length == 2) {
-			File scriptFile = new File(args[0]);
-			String scriptFileName = args[0];
-			String logFileName = args[1];
+		if (args.length == 3) {
+			String dbFileName = args[0];
+			File scriptFile = new File(args[1]);
+			String scriptFileName = args[1];
+			String logFileName = args[2];
 
-			ScriptParser parser = new ScriptParser(scriptFile, logFileName, scriptFileName);
+			ScriptParser parser = new ScriptParser(dbFileName, scriptFile, logFileName, scriptFileName);
 			parser.executeScript();
-		}
-
-		else {
-			System.out.println("Not enough command line parameters, or too many.");
+		} else if (args.length < 3){
+			System.out.println("Not enough command line parameters.");
+			System.out.println("\n Invoke with: java nameIndexer <script file name> <log file name>");
+		} else if (args.length > 3) {
+			System.out.println("Too many command line parameters.");
+			System.out.println("\n Invoke with: java nameIndexer <script file name> <log file name>");
+		} else {
 			System.out.println("\n Invoke with: java nameIndexer <script file name> <log file name>");
 		}
 

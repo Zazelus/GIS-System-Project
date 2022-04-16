@@ -1,3 +1,4 @@
+package com.GIS.hashtable;
 import java.util.ArrayList;
 
 /**
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  */
 public class nameEntry implements Hashable<nameEntry> {
 	String key; // GIS feature name
-	ArrayList<Long> locations; // file offsets of matching records
+	private ArrayList<Long> locations; // file offsets of matching records
 
 	/**
 	 * Initialize a new nameEntry object with the given feature name and a single
@@ -14,8 +15,8 @@ public class nameEntry implements Hashable<nameEntry> {
 	 */
 	public nameEntry(String name, Long offset) {
 		key = name;
-		locations = new ArrayList<Long>();
-		locations.add(offset);
+		setLocations(new ArrayList<Long>());
+		getLocations().add(offset);
 	}
 
 	/**
@@ -29,15 +30,15 @@ public class nameEntry implements Hashable<nameEntry> {
 	 * Return list of file offsets.
 	 */
 	public ArrayList<Long> locations() {
-		return locations;
+		return getLocations();
 	}
 
 	/**
 	 * Append a file offset to the existing list.
 	 */
 	public boolean addLocation(Long offset) {
-		if (!locations.contains(offset)) {
-			return locations.add(offset);
+		if (!getLocations().contains(offset)) {
+			return getLocations().add(offset);
 		}
 		return false;
 	}
@@ -73,6 +74,14 @@ public class nameEntry implements Hashable<nameEntry> {
 	 * for this assignment.
 	 */
 	public String toString() {
-		return ("[" + this.key + ", " + this.locations.toString() + "]");
+		return ("[" + this.key + ", " + this.getLocations().toString() + "]");
+	}
+
+	public ArrayList<Long> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(ArrayList<Long> locations) {
+		this.locations = locations;
 	}
 }

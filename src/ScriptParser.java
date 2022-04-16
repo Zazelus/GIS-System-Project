@@ -4,6 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+import com.GIS.hashtable.hashTable;
+import com.GIS.hashtable.nameEntry;
+import com.GIS.world.CoordinateParser;
+
 /**
  * Handles all commands in provided script files when running the program.
  * 
@@ -11,6 +15,7 @@ import java.io.RandomAccessFile;
  */
 public class ScriptParser {
 
+	private FileWriter dbFile;
 	private RandomAccessFile rafScript;
 	private String recordFileName;
 	private String scriptName;
@@ -25,7 +30,8 @@ public class ScriptParser {
 	 * @param logFile:    the file we're writing to after processing commands.
 	 * @throws IOException 
 	 */
-	public ScriptParser(File scriptFile, String logFileName, String scriptFileName) throws IOException {
+	public ScriptParser(String dbFileName, File scriptFile, String logFileName, String scriptFileName) throws IOException {
+		dbFile = new FileWriter(dbFileName);
 		rafScript = new RandomAccessFile(scriptFile, "r");
 		scriptName = scriptFileName;
 		fwLog = new FileWriter(logFileName);
@@ -159,9 +165,9 @@ public class ScriptParser {
 		if (target == null) {
 			fwLog.write("No record matches " + values[1] + "\n");
 		} else {
-			for (int i = 0; i < target.locations.size(); i++) {
+			for (int i = 0; i < target.getLocations().size(); i++) {
 				RandomAccessFile rafRecords = new RandomAccessFile(recordFileName, "r");
-				long offset = target.locations.get(i);
+				long offset = target.getLocations().get(i);
 				String[] record = findRecord(rafRecords, offset);
 				
 				fwLog.write(offset + ":\t" + record[2] + "\t(" 

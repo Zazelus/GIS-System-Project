@@ -1,3 +1,4 @@
+package com.GIS.hashtable;
 /**
  * Interface to be used for nameEntry objects.
  * @author Mansour Najah

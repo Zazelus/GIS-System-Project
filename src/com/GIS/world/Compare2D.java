@@ -1,3 +1,4 @@
+package com.GIS.world;
 // The interface Compare2D is intended to supply facilities that are useful in
 // supporting the the use of a generic spatial structure with a user-defined
 // data type.

@@ -1,3 +1,4 @@
+package com.GIS.world;
 // Represents a point in the xy-plane with integer-valued coordinates.
 // Supplies comparison functions specified in the Compare2D interface.
 //
