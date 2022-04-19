@@ -1,0 +1,106 @@
+Processing script file: Script04.txt
+
+world	0804500W	0800000W	370000N	374500N
+
+GIS Program
+
+dbFile:     myDb04.txt
+script:     Script04.txt
+log:        myLog04.txt
+Start time: Tue Apr 19 15:21:00 EDT 2022
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+			135900
+	-290700		-288000
+			133200
+--------------------------------------------------------------------------------
+Command 1: import	VA_Montgomery.txt
+
+Imported Features by name: 752
+Imported Locations:	   752
+Average name length:	   18
+--------------------------------------------------------------------------------
+Command 2: what_is	Paul Derring Hall	VA
+
+	92227:	Montgomery	(80d 25m 33s West, 37d 13m 44s North)
+--------------------------------------------------------------------------------
+Command 3: what_is	Holden Hall	VA
+
+	60465:	Montgomery	(80d 25m 24s West, 37d 13m 47s North)
+--------------------------------------------------------------------------------
+Command 4: what_is	Sugar Bottom Hollow	VA
+
+	32304:	Montgomery	(80d 19m 17s West, 37d 20m 10s North)
+--------------------------------------------------------------------------------
+Command 5: what_is	Blacksburg Quarry	VA
+
+	105190:	Montgomery	(80d 23m 32s West, 37d 10m 45s North)
+--------------------------------------------------------------------------------
+Command 6: what_is_at	371347N	0802514W
+
+	The following features were found at (80d 25m 14s West, 37d 13m 47s North):
+	 93317: Torgersen Hall Montgomery VA
+--------------------------------------------------------------------------------
+Command 7: what_is_at	370817N	0802808W
+
+	The following features were found at (80d 28m 8s West, 37d 8m 17s North):
+	 18623: Barringer Mountain Montgomery VA
+--------------------------------------------------------------------------------
+Command 8: what_is_at	371105N	0803133W
+
+	The following features were found at (80d 31m 33s West, 37d 11m 5s North):
+	 41632: Radford AAP Heliport Montgomery VA
+--------------------------------------------------------------------------------
+Command 9: what_is_in	371347N	0802514W	5	5
+
+	The following 8 feature(s) were found in (80d 25m 14s West +/- 5, 37d 13m 47s North +/- 5
+	 49514:	Brodie Hall	(80d 25m 12s West, 37d 13m 48s North)
+	 64863:	Lane Hall	(80d 25m 11s West, 37d 13m 51s North)
+	 66868:	Major Williams Dormitory	(80d 25m 15s West, 37d 13m 51s North)
+	 67006:	McBryde Hall	(80d 25m 19s West, 37d 13m 49s North)
+	 71827:	Newman Library	(80d 25m 10s West, 37d 13m 44s North)
+	 93317:	Torgersen Hall	(80d 25m 14s West, 37d 13m 47s North)
+	 93626:	War Memorial Chapel	(80d 25m 15s West, 37d 13m 43s North)
+	 98020:	James H Lane Hall	(80d 25m 12s West, 37d 13m 51s North)
+--------------------------------------------------------------------------------
+Command 10: what_is_in	371105N	0803133W	5	5
+
+	The following 1 feature(s) were found in (80d 31m 33s West +/- 5, 37d 11m 5s North +/- 5
+	 41632:	Radford AAP Heliport	(80d 31m 33s West, 37d 11m 5s North)
+--------------------------------------------------------------------------------
+Command 11: what_is_in	370822N	0802430W	10	10
+
+	The following 3 feature(s) were found in (80d 24m 30s West +/- 10, 37d 8m 22s North +/- 10
+	 20960:	Christiansburg Institute	(80d 24m 30s West, 37d 8m 22s North)
+	 54011:	Church of God in Christ	(80d 24m 26s West, 37d 8m 12s North)
+	 103165:	Tekoa Community School	(80d 24m 38s West, 37d 8m 21s North)
+--------------------------------------------------------------------------------
+Command 12: what_is_in	372230N	0802230W	120	120	
+
+	The following 1 feature(s) were found in (80d 22m 30s West +/- 120, 37d 22m 30s North +/- 120
+	 20385:	Bruisers Knob	(80d 20m 37s West, 37d 21m 11s North)
+--------------------------------------------------------------------------------
+Command 13: what_is	Monterey	VA
+
+No records match Monterey and VA
+
+--------------------------------------------------------------------------------
+Command 14: what_is_at	371347N	0804505W
+
+	Nothing was found at (80d 45m 5s West, 37d 13m 47s North)	The following features were found at (80d 45m 5s West, 37d 13m 47s North):
+
+--------------------------------------------------------------------------------
+Command 15: what_is_in	372230N	0802230W	10	10
+
+	Nothing was found in (80d 22m 30s West +/- 10, 37d 22m 30s North +/- 10
+	The following 0 feature(s) were found in (80d 22m 30s West +/- 10, 37d 22m 30s North +/- 10
+--------------------------------------------------------------------------------
+Command 16: quit	
+
+Terminating execution of commands.
+End time: Tue Apr 19 15:21:00 EDT 2022
+--------------------------------------------------------------------------------

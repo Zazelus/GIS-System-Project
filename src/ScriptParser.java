@@ -3,10 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Map;
 
-import com.GIS.hashtable.hashTable;
-import com.GIS.hashtable.nameEntry;
-import com.GIS.world.CoordinateParser;
+import com.GIS.databaseModel.DbController;
+import com.GIS.databaseModel.DbWriter;
 
 /**
  * Handles all commands in provided script files when running the program.
@@ -15,14 +15,14 @@ import com.GIS.world.CoordinateParser;
  */
 public class ScriptParser {
 
-	private FileWriter dbFile;
+	private String dbFileName;
+	
 	private RandomAccessFile rafScript;
-	private String recordFileName;
 	private String scriptName;
+	
+	private String logName;
 	private FileWriter fwLog;
 	
-	private hashTable<nameEntry> table;
-
 	/**
 	 * Creates a new ScriptParser object.
 	 * 
@@ -31,9 +31,10 @@ public class ScriptParser {
 	 * @throws IOException 
 	 */
 	public ScriptParser(String dbFileName, File scriptFile, String logFileName, String scriptFileName) throws IOException {
-		dbFile = new FileWriter(dbFileName);
+		this.dbFileName = dbFileName;
 		rafScript = new RandomAccessFile(scriptFile, "r");
 		scriptName = scriptFileName;
+		logName = logFileName;
 		fwLog = new FileWriter(logFileName);
 	}
 
@@ -42,6 +43,8 @@ public class ScriptParser {
 	 */
 	public void executeScript() {
 		try {
+			DbController dbController = new DbController(dbFileName);
+			DbWriter dbWriter = new DbWriter(fwLog);
 			String commandLine;
 			String[] values;
 			
@@ -52,35 +55,53 @@ public class ScriptParser {
 			
 			// Reading each line in the command file.
 			while ((commandLine = rafScript.readLine()) != null) {
-				if (commandLine.contains("quit")) {
+				commandLine = commandLine.trim();
+				
+				// Check for semicolons and empty lines, just write them to log as is.
+				while (commandLine.startsWith(";") || commandLine.length() == 0) {
+					commandLine = rafScript.readLine();
+				}
+				
+				values = commandLine.split("\t");
+				command = values[0];
+				
+				if (command.equals("world")) {
+					fwLog.write(commandLine + "\n\n");
+				} else {
 					commandNumber++;
-					quit(commandNumber);
-					break;
+					fwLog.write("\nCommand " + commandNumber + ": " + commandLine + "\n\n");
 				}
-				// We can skip any lines with ';'.
-				if (commandLine.length() > 0) {
-					if (commandLine.charAt(0) != ';') {
-						values = commandLine.split("\t");
-						command = values[0];
-						commandNumber++;
-							
-						if (commandNumber > 1) {
-							fwLog.write("\n");
-						}
-												
-						switch(command) {
-							case "index":
-								index(commandNumber, values);
-								break;
-							case "what_is":
-								whatIs(commandNumber, values);
-								break;
-							case "show":
-								show(commandNumber, values);
-								break;
-						}
-					}
+				
+				switch(command) {
+					case "world":
+						long[] boundaries = dbController.getWorldBoundaries(values[1], values[2], values[3], values[4]);
+						dbWriter.logWorld(dbFileName, scriptName, logName, boundaries);
+						break;
+					case "import":
+						long[] result = dbController.importRecords(values[1]);
+						dbWriter.logImport(result);
+						break;
+					case "what_is":
+						Map<Long, String> records = dbController.whatIs(values[1], values[2]);
+						dbWriter.logWhatIs(values[1], values[2], records);
+						break;
+					case "what_is_at":
+						records = dbController.whatIsAt(values[1], values[2]);
+						dbWriter.logWhatIsAt(values[1], values[2], records);
+						break;
+					case "what_is_in":
+						records = dbController.whatIsIn(values[1], values[2], Long.parseLong(values[3]), Long.parseLong(values[4]));
+						dbWriter.logWhatIsIn(values[1], values[2], Long.parseLong(values[3]), Long.parseLong(values[4]), records);
+						break;
+					case "show":
+						dbController.show(values[1], fwLog);
+						break;
+					case "quit":
+						dbWriter.logQuit();
+						break;
+						
 				}
+				fwLog.write("\n--------------------------------------------------------------------------------");
 			}
 			
 			fwLog.close();
@@ -92,114 +113,4 @@ public class ScriptParser {
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * Finds a specific GIS record based on its offset.
-	 * 
-	 * @param rafRecords: the file to be accessed.
-	 * @param offset: the offset to seek.
-	 * @return: our target record.
-	 * @throws IOException
-	 */
-	public String[] findRecord(RandomAccessFile rafRecords, long offset) throws IOException {
-		rafRecords.seek(offset);
-		
-		String record = rafRecords.readLine();
-		String[] slicedRecord = record.split("\\|");
-		
-		return slicedRecord;
-	}
-	
-	/**
-	 * Separator for the log file.
-	 * @param fw: writes to our file.
-	 * @throws IOException
-	 */
-	public void separate(FileWriter fw) throws IOException {
-		fw.write("-----------------------------------------------------");
-	}
-
-	/**
-	 * Populates our hashtable with GIS records.
-	 * @param commandNumber: current command number on script file.
-	 * @param values: our string containing the current line in the script.
-	 * @throws IOException
-	 */
-	public void index(int commandNumber, String[] values) throws IOException {
-		recordFileName = values[1];
-		
-		try (RandomAccessFile rafRecords = new RandomAccessFile(values[1], "r")) {
-			fwLog.write("Cmd " + commandNumber + " :\tindex\t" + values[1] + "\n");
-			separate(fwLog);
-			
-			String record = rafRecords.readLine();
-			String[] line;
-			
-			long offset  = rafRecords.getFilePointer();
-			
-			table = new hashTable<nameEntry>(null, null);
-			
-			// Reading each line in the command file.
-			while ((record = rafRecords.readLine()) != null) {
-				line = record.split("\\|");
-				
-				nameEntry entry = new nameEntry(line[1], offset);
-				table.insert(entry);
-				
-				offset = rafRecords.getFilePointer();
-			}
-		}
-	}
-
-	/**
-	 * Tells us the type of feature.
-	 * @param commandNumber: current command number on script file.
-	 * @param values: our string containing the current line in the script.
-	 * @throws IOException
-	 */
-	public void whatIs(int commandNumber, String[] values) throws IOException {
-		fwLog.write("Cmd " + commandNumber + " :\twhat_is\t" + values[1] + "\n");
-		
-		nameEntry target = table.find(new nameEntry(values[1], 4L));
-		
-		if (target == null) {
-			fwLog.write("No record matches " + values[1] + "\n");
-		} else {
-			for (int i = 0; i < target.getLocations().size(); i++) {
-				RandomAccessFile rafRecords = new RandomAccessFile(recordFileName, "r");
-				long offset = target.getLocations().get(i);
-				String[] record = findRecord(rafRecords, offset);
-				
-				fwLog.write(offset + ":\t" + record[2] + "\t(" 
-						+ CoordinateParser.parseLongitude(record[8]) + ", " 
-						+ CoordinateParser.parseLatitude(record[7]) + ")\n");
-			}
-		}
-		
-		separate(fwLog);
-	}
-
-	/**
-	 * Shows all slots of the hashtables and their contents.
-	 * @param commandNumber: current command number on script file.
-	 * @param values: our string containing the current line in the script.
-	 * @throws IOException
-	 */
-	public void show(int commandNumber, String[] values) throws IOException {
-		fwLog.write("Cmd " + commandNumber + " :\tshow\t" + values[1] + "\n");
-		table.display(fwLog);
-		separate(fwLog);
-	}
-
-	/**
-	 * Ends the log file and stops processing the script.
-	 * @param commandNumber: current command number on script file.
-	 * @throws IOException
-	 */
-	public void quit(int commandNumber) throws IOException {
-		fwLog.write("\nCmd " + commandNumber + " :\tquit\t" + "\n");
-		fwLog.write("Found quit command... ending processing...\n");
-		separate(fwLog);
-	}
-
 }

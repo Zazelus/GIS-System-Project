@@ -3,24 +3,47 @@ package com.GIS.world;
 // Supplies comparison functions specified in the Compare2D interface.
 //
 
+import java.util.ArrayList;
+
 public class Point implements Compare2D<Point> {
 
     public long xcoord;
     public long ycoord;
+    private ArrayList<Long> offsetList;
     
     public Point() {
        xcoord = 0;
        ycoord = 0;
     }
+    
     public Point(long x, long y) {
        xcoord = x;
        ycoord = y;
+       offsetList = new ArrayList<>();
     }
+    
     public long getX() {
        return xcoord;
     }
+    
     public long getY() {
        return ycoord;
+    }
+    
+    /**
+     * Adds a new offset to our offset list.
+     * @param offset: the new location offset to be added.
+     */
+    public void addOffset(long offset) {
+    	offsetList.add(offset);
+    }
+    
+    /**
+     * Returns our list offsets.
+     * @return: offsetList
+     */
+    public ArrayList<Long> getOffsets() {
+    	return offsetList;
     }
     
     // Returns indicator of the direction to the user data object from the 

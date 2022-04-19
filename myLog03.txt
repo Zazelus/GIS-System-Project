@@ -1,0 +1,272 @@
+Processing script file: Script03.txt
+
+world	0800400W	0792100W	375230N	383530N
+
+GIS Program
+
+dbFile:     myDb03.txt
+script:     Script03.txt
+log:        myLog03.txt
+Start time: Tue Apr 19 15:19:59 EDT 2022
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+			138930
+	-288240		-285660
+			136350
+--------------------------------------------------------------------------------
+Command 1: import	VA_Highland.txt
+
+Imported Features by name: 289
+Imported Locations:	   289
+Average name length:	   14
+--------------------------------------------------------------------------------
+Command 2: show	hash
+
+Number of elements: 281
+Number of slots: 512
+Maximum elements in a slot: 5
+Load limit: 0.7
+
+Slot Contents
+    1: [[Clover Lick Hollow|VA, [6548]]]
+    2: [[Buck Hill|VA, [4334]], [Slabcamp Run|VA, [24430]]]
+    3: [[Columbia Union College Biological Station|VA, [7031]]]
+    5: [[Newman Run|VA, [20287]], [Mustoe|VA, [35225]]]
+    6: [[Stony Run Cemetery|VA, [25449]], [Sirons Mill|VA, [32226]]]
+    7: [[New Salem Church|VA, [20159]], [Tamarack Ridge|VA, [26806]]]
+    8: [[Valley Center|VA, [27993]], [Blue Grass District|VA, [40193]]]
+   10: [[The Divide|VA, [27048]]]
+   11: [[Bear Mountain|VA, [32634, 32760]]]
+   12: [[Seybert Hills|VA, [34367]]]
+   13: [[Big End|VA, [1656]]]
+   19: [[Bearcamp Knob|VA, [823]], [Lost Run|VA, [16499]], [Barren Rock|VA, [21848]], [Wildcat Hollow|VA, [30133]]]
+   20: [[Steep Pinch Ridge|VA, [25005]]]
+   21: [[Left Prong Benson Run|VA, [15053]], [McGuffin Trail|VA, [17496]]]
+   22: [[Strait Creek School (historical)|VA, [38821]]]
+   24: [[Dry Run|VA, [8201]]]
+   25: [[Headwaters Presbyterian Church|VA, [37589]]]
+   27: [[Sues Draft|VA, [25900]]]
+   29: [[McDowell|VA, [17370]]]
+   30: [[Briery Draft|VA, [3611]], [Kettle Hollow|VA, [13722]]]
+   32: [[Blue Grass|VA, [2576]]]
+   35: [[Campbell Run|VA, [5216]]]
+   38: [[Freezland Hollow|VA, [9490]]]
+   41: [[Mullenax Run|VA, [19719]]]
+   42: [[Ruckman Draft|VA, [22105]]]
+   43: [[Pisgah Church|VA, [21438]], [Trimble|VA, [34733]], [Buck Knob|VA, [35984]]]
+   44: [[Benson Run Trail|VA, [1260]]]
+   46: [[Peck Run|VA, [21031]]]
+   48: [[Buck Run|VA, [4456]]]
+   53: [[Swope Hollow|VA, [26646]]]
+   57: [[Swank Chapel|VA, [26519]]]
+   60: [[Horsehole Hollow|VA, [12239]], [Thorny Bottom Church|VA, [27291]]]
+   62: [[Back Draft|VA, [513]], [West Strait Creek|VA, [29066]], [Clover Creek Presbyterian Church|VA, [36761]]]
+   64: [[Gregory Ridge|VA, [10182]], [Meadow Draft|VA, [17745]]]
+   65: [[Green Hill School (historical)|VA, [37180]]]
+   69: [[Big Valley Cemetery|VA, [2127]]]
+   72: [[Upper Mountain Lick|VA, [27698]]]
+   74: [[Knotmaul Run|VA, [14025]]]
+   79: [[Pine Ridge|VA, [21318]]]
+   82: [[Lynn Hollow|VA, [16929]]]
+   85: [[Mill Run|VA, [18437, 18595]], [Sugar Tree Draft|VA, [26053]]]
+   86: [[Huffman Hollow|VA, [12401]]]
+   89: [[Hoop Hole Hollow|VA, [12078]]]
+   92: [[Lawson Knob|VA, [39688]]]
+   95: [[Buffalo Knob|VA, [4614]], [Laurel Fork|VA, [14474]]]
+   96: [[Mill Gap|VA, [18169, 35101]], [Vanderpool Gap|VA, [28273]]]
+   97: [[Hiner Hollow|VA, [11921]]]
+  100: [[Peak Run|VA, [20876]], [Naples (historical)|VA, [39399]]]
+  105: [[Hamilton Chapel|VA, [10551]], [Little Ridge|VA, [15781]]]
+  107: [[Collins Run|VA, [6874]], [Trimble Knob|VA, [34860]]]
+  115: [[Sheets Hollow|VA, [23379]], [Wooden Run|VA, [30607]]]
+  116: [[Dixon Hills|VA, [7932]]]
+  123: [[Cedar Knob|VA, [33005]]]
+  125: [[Locust Springs Recreation Site|VA, [31294]]]
+  126: [[Carroll Draft|VA, [5657]]]
+  128: [[Whitehorn Creek|VA, [29507]]]
+  130: [[Burners Run|VA, [4902]]]
+  131: [[Bolar Run|VA, [3000]], [Summers Mountain|VA, [26389]], [Monterey|VA, [35601]]]
+  133: [[Kent Simmons Hollow|VA, [13557]]]
+  135: [[Snowy Mountain|VA, [36367]]]
+  136: [[Phillips Spring|VA, [21184]]]
+  138: [[Davis Run|VA, [7486]]]
+  140: [[Cedar Ridge|VA, [39806]]]
+  144: [[The Stamp|VA, [27166]]]
+  151: [[Victory Chapel|VA, [28392]]]
+  153: [[Bear Hollow|VA, [668]], [Smith Field|VA, [35737]]]
+  154: [[Brushy Mountain|VA, [4082]], [Straight Fork|VA, [25580]]]
+  155: [[Bolar Spring|VA, [3166]], [Monterey Methodist Episcopal Church|VA, [38267]]]
+  156: [[Plum Grove School (historical)|VA, [38411]]]
+  157: [[Big Hill|VA, [1774]]]
+  159: [[Green Hill Church|VA, [10059]]]
+  164: [[Middle Mountain Trail|VA, [18033]]]
+  165: [[McDowell High School|VA, [38138]]]
+  168: [[Devils Backbone|VA, [7643]]]
+  170: [[Mountain Path|VA, [19442]]]
+  171: [[Laurel Fork Trail|VA, [14636]], [Shaws Ridge|VA, [23262]], [Water Sinks|VA, [28822]]]
+  173: [[Flood School (historical)|VA, [37041]]]
+  174: [[Buck Mountain|VA, [31848]]]
+  181: [[Falls Hollow|VA, [8940]]]
+  182: [[Hupman Valley Trail|VA, [30899]]]
+  185: [[Sulphur Spring Hollow|VA, [26219]]]
+  186: [[Christian Run|VA, [5933]]]
+  187: [[Devrick Hollow|VA, [7773]], [Riverview Church (historical)|VA, [38685]]]
+  189: [[Sites Hollow|VA, [24148]]]
+  192: [[Erwin Draft|VA, [8661]]]
+  194: [[Hupman Valley|VA, [12561]]]
+  197: [[Little Doe Hill|VA, [15654]]]
+  199: [[Lynn Rock Church|VA, [17085]]]
+  201: [[Meadowdale|VA, [33862]]]
+  202: [[Blue Grass Cemetery|VA, [2704]]]
+  204: [[Botkin Hollow|VA, [3299]]]
+  206: [[Back Creek Mountain|VA, [387]]]
+  207: [[Scaffold Run|VA, [22541]]]
+  208: [[Middle Mountain|VA, [17904]], [White Run|VA, [29356]]]
+  211: [[Hannah Field Airport|VA, [30759]]]
+  212: [[Big Crooked Ridge|VA, [1528]]]
+  214: [[Laurel Run|VA, [14898]]]
+  216: [[Rich Hills|VA, [34248]]]
+  218: [[Spring Run|VA, [24849]]]
+  220: [[Jerkemtight Trail|VA, [13004]]]
+  227: [[Jones Trail|VA, [13438]], [Sheep Knob|VA, [34488]]]
+  228: [[Patna|VA, [36239]]]
+  229: [[Locust Springs Picnic Area|VA, [31157]]]
+  241: [[Sinking Creek|VA, [23986]]]
+  243: [[Bluegrass Valley|VA, [2840]]]
+  244: [[Wolfe Draft|VA, [30451]]]
+  250: [[Jones Run|VA, [13287]], [Lynn Stand Hollow|VA, [17210]], [Hightown|VA, [33374]]]
+  251: [[Southall Chapel|VA, [24722]], [Hulit Draft|VA, [31435]]]
+  255: [[Highland Wildlife Management Area|VA, [11536]]]
+  256: [[Benson Run|VA, [1106]], [Page Run|VA, [20724]]]
+  258: [[Possum Trot|VA, [34119]]]
+  260: [[Whiteman Run|VA, [29667]]]
+  262: [[Sittlington Hill|VA, [24305]]]
+  263: [[Sapling Ridge|VA, [22418]]]
+  264: [[Gwin Mountain|VA, [10428]], [Lick Points|VA, [15533]]]
+  266: [[Central Church|VA, [5810]]]
+  267: [[Crab Run|VA, [7181, 7333]], [Hightown Church|VA, [11678]], [McKendree Church|VA, [17621]]]
+  269: [[The Bump|VA, [26929]], [Griffin Cemetery|VA, [37317]]]
+  271: [[Seybert Chapel|VA, [22862]]]
+  275: [[Broad Run|VA, [3768]], [Gulf Mountain|VA, [10305]], [Opossum Hollow|VA, [20443]]]
+  276: [[Union Chapel|VA, [27577]]]
+  277: [[Maple Knob|VA, [33743]]]
+  280: [[Knox Lick Draft|VA, [14185]]]
+  282: [[Phillips Hollow|VA, [32355]]]
+  284: [[Miracle Ridge|VA, [18748]]]
+  285: [[Salthouse Hollow|VA, [22261]]]
+  286: [[Blights Run|VA, [2419]], [Vance Hollow|VA, [28113]]]
+  287: [[Claylick Hollow|VA, [6388]]]
+  293: [[Black Gum Draft|VA, [2259]]]
+  294: [[Mount Zion Church|VA, [19311]]]
+  297: [[Liberty|VA, [33618]]]
+  299: [[Frank Run|VA, [9336]], [Bald Knob|VA, [32515]]]
+  302: [[Stark Ridge|VA, [39923]]]
+  305: [[Hulls Hill|VA, [33499]]]
+  306: [[Doe Hill School (historical)|VA, [36905]]]
+  312: [[Bridge Hollow|VA, [3456]]]
+  315: [[Buckeye (historical)|VA, [39100]]]
+  316: [[Laurel Gap Church|VA, [14767]]]
+  318: [[Town of Monterey|VA, [40602]]]
+  324: [[East Back Creek|VA, [8351]]]
+  325: [[Blue Grass School (historical)|VA, [36622]]]
+  330: [[Locust Spring Run Trail|VA, [16366]]]
+  331: [[Brushy Fork|VA, [3922]]]
+  335: [[Lockridge Memorial Church|VA, [15903]], [New Church|VA, [20034]]]
+  336: [[Stony Run|VA, [25294]]]
+  337: [[Townsend Draft|VA, [27420]]]
+  339: [[Sounding Knob|VA, [34607]]]
+  340: [[Nelson Draft|VA, [19872]]]
+  341: [[Lower Mountain Lick|VA, [16766]]]
+  346: [[Key Run|VA, [13873]]]
+  347: [[Henry Ridge|VA, [10956]], [Warwick Run|VA, [39235]]]
+  348: [[Red Oak Knob|VA, [21560]]]
+  350: [[Hickory Log Hollow|VA, [11233]]]
+  351: [[Wallowhole Hollow|VA, [28663]]]
+  355: [[Morris Run|VA, [18997]]]
+  356: [[Paddy Knob|VA, [20602]]]
+  357: [[Vinegar Run|VA, [28513]]]
+  361: [[Stillhouse Run|VA, [25132]]]
+  362: [[Wide Draft|VA, [29823]]]
+  365: [[Jerry Hollow|VA, [13134]]]
+  370: [[Locust Fork|VA, [16041]]]
+  371: [[Asbury Church|VA, [265]], [Siebert Run|VA, [39534]]]
+  376: [[Mudlick Draft|VA, [19564]]]
+  382: [[Brushy Ridge|VA, [4213, 32883]], [Head Waters|VA, [10836]]]
+  383: [[Strait Creek|VA, [25743]], [Confederate Breastworks|VA, [31596]]]
+  386: [[Right Prong Benson Run|VA, [21680]]]
+  387: [[White Oak Flat|VA, [29228]]]
+  395: [[Hardscrabble|VA, [36104]]]
+  396: [[Lick Draft|VA, [15219, 15375]]]
+  397: [[Stony Run Church|VA, [31030]], [Monterey District|VA, [40329]]]
+  398: [[Hevener Run|VA, [11077]]]
+  400: [[Grassy Field Hollow|VA, [9894]]]
+  402: [[Cabin Hollow|VA, [5058]]]
+  403: [[Doe Hill|VA, [32100, 33256]], [Highland County|VA, [37867]]]
+  405: [[Bearwallow Run|VA, [946]], [Galford Gap|VA, [9655]]]
+  407: [[Little Mountain|VA, [22985, 34980]]]
+  410: [[Ginseng Mountain|VA, [9771]], [Bullpasture Mountain|VA, [31970]]]
+  413: [[Campground Hollow|VA, [5369]]]
+  417: [[Big Valley|VA, [2011]]]
+  419: [[Clover Creek|VA, [33123]]]
+  420: [[Headwaters Brethren Church (historical)|VA, [37441]]]
+  421: [[Hiner Church|VA, [11801]]]
+  426: [[River View School (historical)|VA, [38548]]]
+  428: [[Sorrel Point Ridge|VA, [24593]]]
+  431: [[Simmons Run|VA, [23669]]]
+  432: [[Eowyns Run|VA, [40040]]]
+  434: [[Valley Bethel Church|VA, [27862]]]
+  439: [[Mill Hollow|VA, [18281]]]
+  440: [[Seldom Seen Hollow|VA, [22696]]]
+  441: [[Lower Gap|VA, [16650]]]
+  442: [[Shaws Fork|VA, [23108]]]
+  443: [[Headwaters School (historical)|VA, [37728]]]
+  445: [[Bullpasture Gorge|VA, [4735]]]
+  448: [[Vanderpool|VA, [35475]]]
+  450: [[Christian Run Trail|VA, [6097]]]
+  453: [[Elk Run|VA, [8509]]]
+  454: [[Beulah Presbyterian Church|VA, [1385]], [Lantz Mountain|VA, [14350]]]
+  456: [[Flood|VA, [9093]], [Wesley Chapel|VA, [28946]]]
+  458: [[Shenandoah Mountain Trail|VA, [23535]]]
+  459: [[Wilson Hollow|VA, [30293]]]
+  462: [[Cold Spring Run|VA, [6708]]]
+  465: [[Rock Lick Spring|VA, [21969]]]
+  466: [[Palo Alto|VA, [35347]], [Bethel|VA, [36497]]]
+  470: [[Wide Hollow|VA, [29974]]]
+  471: [[Stonewall District|VA, [40467]]]
+  480: [[Jenny Gwin Draft|VA, [12846]], [Alum Rock|VA, [35861]]]
+  481: [[Big Ridge|VA, [1891]]]
+  482: [[Forks of Waters|VA, [9212]], [Locust Spring Run|VA, [16198]]]
+  489: [[Highland Elementary School|VA, [37994]]]
+  490: [[Woods-Terry School (historical)|VA, [38962]]]
+  497: [[New Hampden|VA, [33990]]]
+  498: [[Jack Mountain|VA, [12721]], [Sinclair Hollow|VA, [23825]]]
+  499: [[Fairview Cemetery|VA, [8814]]]
+  502: [[Brushy Hill|VA, [31728]]]
+  503: [[Mount Carlyle|VA, [5532]], [Hamilton Draft|VA, [10678]]]
+  505: [[Highland High School|VA, [11397]], [Mortons Draft|VA, [19154]]]
+  506: [[Monterey Mountain|VA, [18870]]]
+  510: [[Church Hollow|VA, [6230]]]
+  511: [[Dry Branch|VA, [8049]]]
+
+--------------------------------------------------------------------------------
+Command 3: what_is	Cabin Hollow	VA
+
+	5058:	Highland	(79d 28m 45s West, 38d 14m 42s North)
+--------------------------------------------------------------------------------
+Command 4: what_is	Mudlick Draft	VA
+
+	19564:	Highland	(79d 22m 58s West, 38d 20m 52s North)
+--------------------------------------------------------------------------------
+Command 5: what_is	Bear Mountain	VA
+
+	32634:	Highland	(79d 32m 54s West, 38d 20m 12s North)	32760:	Highland	(79d 41m 26s West, 38d 26m 48s North)
+--------------------------------------------------------------------------------
+Command 6: quit	
+
+Terminating execution of commands.
+End time: Tue Apr 19 15:19:59 EDT 2022
+--------------------------------------------------------------------------------
